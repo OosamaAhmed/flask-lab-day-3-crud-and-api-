@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} Update Post {% endblock %}
+{% block maincontent %}
+<div class="container">
+    <form method="POST">
+        {{form.csrf_token}}
+       
+         <div>
+             <label class="form-label" for="">title</label>
+        <input class="form-control" type="text" name="title" value="{{form.title}}">
+            </div>
+       
+        <div class="mb-3">
+            <label class="form-label" for="">body</label>
+            <input class="form-control" type="text" name="body" value="{{form.body}}">
+           
+        </div>
+
+        <div class="mb-3">
+<label class="form-label" for="">image</label>
+<input type="text" class="form-control" name="image" value="{{form.image}}">
+            <div class="mb-3">
+              
+            </div>
+            <div class="mb-3">
+
+                <div class="mb-3 ">
+                    <label for="cat" class="form-label">Category</label>
+                    <select name="category" class="form-control" id="cat">
+                        {% for cat in category %}
+                        <option value="{{cat.id}}">{{cat.title}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-outline-dark ">submit</button>
+    </form>
+</div>
+{% endblock %}

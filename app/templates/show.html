@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block maincontent %}
+
+
+<div>
+
+<div class="card text-bg-dark">
+    <img src="{{url_for('static', filename='post.jpg')}}" class="card-img w-100" style="height:50vh;" alt="...">
+    <div class="card-img-overlay">
+        <h5 class="card-title text-bg-danger w-25 p-3 m-2 rounded text-center">{{posts.title}}</h5>
+        <p class="card-text text-bg-danger w-25 p-3 rounded m-2 text-center ">{{posts.body}}</p>
+<a href="{{url_for('updatepost' ,id=posts.id)}}" class="btn btn-outline-danger">Update</a>
+
+    </div>
+</div>
+<a href="{{url_for('posts_index')}}" class="btn btn-outline-danger">Back</a>
+
+</div>
+
+{% endblock %}

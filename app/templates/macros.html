@@ -1,0 +1,26 @@
+{% macro render_list_tuple(list) %}
+{% for x in list %}
+<div class="card mb-3 col-5" style="max-width: 500px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{url_for('static', filename='post.jpg')}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+
+                <h5 class="card-title">{{x.title}}</h5>
+                <p class="card-text">{{x.body}}</p>
+                <p class="card-text">{{x.category}}</p>
+
+<img src="#" alt="{{x.image}}" />
+
+                <a href="{{url_for('show' , id=x.id)}}" class="btn btn-outline-dark">Show</a>
+                <a href="{{url_for('delete' , id=x.id)}}" class="btn btn-outline-danger">Delete</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endmacro %}

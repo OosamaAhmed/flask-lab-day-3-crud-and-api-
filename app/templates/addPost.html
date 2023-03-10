@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Add New Post {% endblock %}
+{% block maincontent %}
+<div class="container">
+    <form method="POST">
+        {{form.csrf_token}}
+        <div class="mb-3">
+            <div class="form-label"> {{form.title.label}} </div>
+            {{form.title(value=title, class='form-control')}}
+
+        </div>
+        <div class="mb-3">
+            <div class="form-label"> {{form.body.label}} </div>
+            {{form.body( value=body, class='form-control')}}
+
+        </div>
+
+        <div class="mb-3">
+
+            <div class="mb-3">
+                <div class="form-label"> {{form.image.label}} </div>
+                {{form.image( value=image, class='form-control')}}
+            </div>
+
+         
+            <div class="mb-3 ">
+                <label for="cat" class="form-label">Category</label>
+                <select name="category" class="form-control" id="cat">
+                    {% for cat in category %}
+                    <option value="{{cat.id}}">{{cat.title}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-outline-dark ">submit</button>
+    </form>
+</div>
+{% endblock %}

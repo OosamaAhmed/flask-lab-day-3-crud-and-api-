@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block maincontent %}
+
+<h1> All Posts</h1>
+
+<div class="row d-flex justify-content-around">
+    {% import 'macros.html' as x %}
+    {{x.render_list_tuple(posts)}} 
+
+</div>
+
+{% endblock %}
